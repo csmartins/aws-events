@@ -1,2 +1,20 @@
 # aws-events
 watcher for aws events - gcom challenge
+
+## Running
+
+Create in console an user for automation and give the following permissions to it's group: AWSLambdaFullAccess, IAMFullAccess, CloudWatchFullAccess
+
+Setup env vars for automation user
+
+```
+ export AWS_ACCESS_KEY_ID="keyid"
+ export AWS_SECRET_ACCESS_KEY="accesskey"
+```
+
+Get that Terraform deal going
+
+```
+terraform init
+terraform plan
+```
