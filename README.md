@@ -20,3 +20,7 @@ terraform apply
 ```
 
 Only manual step is to add Cloudwatch event trigger to function via Console. Did not found a way to do it using Terraform.
+
+### Important link
+
+https://gist.github.com/gene1wood/55b358748be3c314f956
