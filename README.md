@@ -16,5 +16,7 @@ Get that Terraform deal going
 
 ```
 terraform init
-terraform plan
+terraform apply
 ```
+
+Only manual step is to add Cloudwatch event trigger to function via Console. Did not found a way to do it using Terraform.

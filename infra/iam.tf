@@ -17,3 +17,13 @@ resource "aws_iam_role" "iam_for_lambda" {
 }
 EOF
 }
+
+data "aws_iam_policy" "lambda_execution_role" {
+  arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+resource "aws_iam_policy_attachment" "attach" {
+  name       = "execution-role-to-lambda"
+  roles      = ["${aws_iam_role.iam_for_lambda.name}"]
+  policy_arn = "${data.aws_iam_policy.lambda_execution_role.arn}"
+}
