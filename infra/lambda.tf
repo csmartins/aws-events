@@ -21,4 +21,9 @@ resource "aws_lambda_function" "event_target" {
       MONGO_PORT = "${var.mongoport}"
     }
   }
+
+  vpc_config {
+    subnet_ids         = ["subnet-f9d6cc80", "subnet-1846b345", "subnet-7c690557", "subnet-9e0d0ad5"]
+    security_group_ids = ["sg-651c4227"]
+  }
 }

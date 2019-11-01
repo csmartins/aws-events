@@ -22,8 +22,18 @@ data "aws_iam_policy" "lambda_execution_role" {
   arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-resource "aws_iam_policy_attachment" "attach" {
+data "aws_iam_policy" "lambda_vpc_execution_role" {
+  arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+}
+
+resource "aws_iam_policy_attachment" "attach-execution-role" {
   name       = "execution-role-to-lambda"
   roles      = ["${aws_iam_role.iam_for_lambda.name}"]
   policy_arn = "${data.aws_iam_policy.lambda_execution_role.arn}"
+}
+
+resource "aws_iam_policy_attachment" "attach-vpc-execution-role" {
+  name       = "execution-role-to-lambda"
+  roles      = ["${aws_iam_role.iam_for_lambda.name}"]
+  policy_arn = "${data.aws_iam_policy.lambda_vpc_execution_role.arn}"
 }
